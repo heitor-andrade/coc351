@@ -85,8 +85,8 @@ class Ball():
             self.move_RK4()
 
     def nextVelocity(self, vel):
-        sign = vel * (-1)
-        return vel + self.fat*sign*DT
+        sign = vel * (-1)/abs(vel)
+        return vel + (0.1 + abs(vel*BETA))*sign
 
     def move_euler(self):
         self.center[0] += self.velocity[0]*DT
